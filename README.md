@@ -1,8 +1,13 @@
 # streamlit-data-science-salaries
 
+Codespace to edit the main code:
 https://glowing-fortnight-g4p5rqvx6g573vvwp.github.dev/
 
-url for Streamlit visualization:
+URL for Streamlit visualization:
 https://glowing-fortnight-g4p5rqvx6g573vvwp-8501.app.github.dev/
 
+Data contains CSV file extracted from Kaggle:
+https://www.kaggle.com/datasets/saurabhbadole/latest-data-science-job-salaries-2024/data
+
+Analysis was made by implementing streamlit functions and visual graphs covered through the seminar lectures.
 
