@@ -140,7 +140,6 @@ with tab1:
     
     st.markdown("<h1 style='color: #006400; text-align: left; font-weight: 700;'> Dataset Variables </h1>", 
         unsafe_allow_html=True)
-    st.write("The dataset contains 11 variables describing salaries,""employees and company characteristics.")
     with st.expander("Explore all dataset variables", expanded=True):
         variables = pd.DataFrame({
             "Variable": [
@@ -224,7 +223,7 @@ with tab1:
     flashcards = [("Focus 01", "Data Science Market",
             "Comprehensive data analysis and insights across 2023-2025",),
         ("Focus 02", "Job Tendencies", "Evaluation of job trends and salaries across countries",),
-        ("Focus 03", "Comparative Analysis", "How various aspects differ and real-life logic",),]
+        ("Focus 03", "Comparative Analysis", "How various aspects differ and real-life logic application",),]
 
     card_cols = st.columns(3)
     for col, (tag, title, body) in zip(card_cols, flashcards):
@@ -357,11 +356,11 @@ with tab2:
     st.plotly_chart(fig1, use_container_width=True)
     
     st.markdown(
-        "<h1 style='color: #006400; text-align: left; font-weight: 650;'> How do Top Job Titles Vary from Salary Mean? </h1>", 
+        "<h1 style='color: #006400; text-align: left; font-weight: 650;'> How do Top Job Titles Vary from Salary Median? </h1>", 
         unsafe_allow_html=True)
     
-    # BAR CHART: How top job titles vary from salary mean
-    st.header("Bar Chart of Top 10 Job titles and Median Salary")
+    # BAR CHART: How top job titles vary from salary median
+    st.header("Bar Chart of Top 20 Job titles and Median Salary")
     overall_median = salaries["salary_in_usd"].median()
     top_titles = salaries["job_title"].value_counts().head(20).index
     title_gap = (
@@ -836,7 +835,7 @@ with tab5:
     st.markdown("<h1 style='color: #006400; text-align: left; font-weight: 700;'> How does Experience Level Differ by Job Position? </h1>", 
         unsafe_allow_html=True)
     #STACKED BAR CHART
-    st.subheader("Analysis by Top 15 Job Titles")
+    st.subheader("Stacked Barchart of Top 15 Job Titles")
     top_jobs = (year_pick_t6["job_title"].value_counts().head(15).index)
     job_experience_counts = (
         year_pick_t6[year_pick_t6["job_title"].isin(top_jobs)]
@@ -864,4 +863,5 @@ with tab5:
     category_order = {
         "experience_level": experience_order,
         "company_size": ["S", "M", "L"],
+
         "remote_label": work_order} 
