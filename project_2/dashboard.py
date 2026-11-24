@@ -629,7 +629,7 @@ with tab4:
                 st.plotly_chart(fig, width="stretch", height = 600)
             with col2:
                 st.header("Jobs Popularity by Country")
-                min_employees = 5
+                min_employees = 1
                 n_titles = 20
                 country_jobs = (year_pick_t4.groupby(["company_location", "job_title"]).size().reset_index(name="Employee_Count"))
                 totals = year_pick_t4["company_location"].value_counts()
@@ -637,7 +637,7 @@ with tab4:
                         .drop_duplicates("company_location").copy())
                 top_jobs["Country_Total"] = top_jobs["company_location"].map(totals)
                 top_jobs = top_jobs[top_jobs["Country_Total"] >= min_employees]
-                common = top_jobs["job_title"].value_counts().head(n_titles).index
+                common = top_jobs["job_title"].value_counts().head(20).index
                 top_jobs["job_group"] = top_jobs["job_title"].where(top_jobs["job_title"].isin(common), "Other")
                 top_jobs["marker_size"] = np.sqrt(top_jobs["Employee_Count"])
                 fig4 = px.scatter_geo(
